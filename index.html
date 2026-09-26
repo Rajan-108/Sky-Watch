@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SKY WATCH — Weather for Anywhere on Earth</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="sky-background"></div>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <span>☁️</span>
+            <div>
+                <h1>SKY WATCH</h1>
+                <p>Weather for anywhere on Earth</p>
+            </div>
+        </div>
+
+        <button class="location-btn" onclick="getLocationWeather()">
+            📍 My Location
+        </button>
+
+    </header>
+
+
+    <!-- Main -->
+    <main class="container">
+
+        <!-- Search -->
+        <section class="search-section">
+
+            <h2>How's the sky today?</h2>
+
+            <p>
+                Search any village, town or city
+            </p>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Search any village, town or city..."
+                    onkeydown="handleEnter(event)"
+                >
+
+                <button onclick="searchWeather()">
+                    🔍 Search
+                </button>
+
+            </div>
+
+            <!-- Quick Locations -->
+            <div class="quick-locations">
+
+                <button onclick="searchQuick('Kolkata')">
+                    Kolkata
+                </button>
+
+                <button onclick="searchQuick('Hallstatt')">
+                    Hallstatt
+                </button>
+
+                <button onclick="searchQuick('Reykjavik')">
+                    Reykjavík
+                </button>
+
+                <button onclick="searchQuick('Delhi')">
+                    Delhi
+                </button>
+
+                <button onclick="searchQuick('London')">
+                    London
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+            <div class="loader"></div>
+            <p>Reading the sky...</p>
+        </div>
+
+
+        <!-- Weather -->
+        <section id="weatherSection" class="weather-section hidden">
+
+            <!-- Location -->
+            <div class="location-info">
+
+                <div>
+                    <h2 id="locationName">Delhi</h2>
+                    <p id="locationCountry">India</p>
+                </div>
+
+                <div class="weather-icon" id="weatherIcon">
+                    ☀️
+                </div>
+
+            </div>
+
+
+            <!-- Main Temperature -->
+            <div class="temperature-card">
+
+                <div class="temperature">
+
+                    <span id="temperature">
+                        28°
+                    </span>
+
+                    <span class="unit">
+                        C
+                    </span>
+
+                </div>
+
+                <h3 id="weatherDescription">
+                    Clear Sky
+                </h3>
+
+                <p>
+                    Feels like
+                    <span id="feelsLike">
+                        30°
+                    </span>
+                </p>
+
+            </div>
+
+
+            <!-- Weather Stats -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        💧
+                    </span>
+
+                    <div>
+                        <p>Humidity</p>
+                        <h3 id="humidity">
+                            65%
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        💨
+                    </span>
+
+                    <div>
+                        <p>Wind</p>
+                        <h3 id="wind">
+                            12 km/h
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        👁️
+                    </span>
+
+                    <div>
+                        <p>Visibility</p>
+                        <h3 id="visibility">
+                            10 km
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        🌡️
+                    </span>
+
+                    <div>
+                        <p>Pressure</p>
+                        <h3 id="pressure">
+                            1013 hPa
+                        </h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Forecast -->
+            <div class="forecast">
+
+                <h2>5-Day Forecast</h2>
+
+                <div id="forecastContainer"
+                     class="forecast-container">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Error -->
+        <div id="errorMessage" class="error hidden">
+
+            <span></span>
+
+            <p>
+                City not found. Please try another location.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            SKY WATCH © 2026
+        </p>
+
+        <p>
+            Weather for anywhere on Earth 🌍
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
